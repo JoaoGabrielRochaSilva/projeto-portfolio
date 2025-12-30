@@ -23,11 +23,21 @@
   box-sizing: border-box;
 }
 
+body.escuro {
+  --fundo-principal: #222222;
+  --texto: #e0e0e0;
+  --texto-inverso: #333333;
+  --destaque: #ff5522;
+  --destaque-inverso: #a73917;
+  --fundo-card: #444444;
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5em;
   background-color: var(--fundo-principal);
   color: var(--texto);
+  transition: 0.5s;
 }
 
 header {
@@ -76,7 +86,7 @@ main {
   padding: 20px;
   border-radius: 8px;
   grid-column: 2;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.295);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.295);
 }
 
 #ficha img {
@@ -90,13 +100,20 @@ main {
   display: block;
   margin: auto;
   margin-bottom: 15px;
+  transition: 0.5s;
+}
+
+#ficha img:hover {
+  transform: scale(1.2);
+  outline-color: var(--destaque-inverso);
+  cursor: pointer;
 }
 
 #ficha h1 {
   color: var(--destaque);
   margin: 15px 0;
   font-size: 1.8em;
-  text-align: left;
+  text-align: center;
 }
 
 #ficha p {
@@ -277,14 +294,18 @@ footer a:hover {
 
 @media screen and (min-width: 768px) {
     main {
-      grid-template-columns: auto 300px 1fr auto;
+      grid-template-columns: auto 400px 1fr auto;
     }
 
     #ficha {
-      grid-column: 2/3;
       height: fit-content;
+      grid-column: 2/3;
       position: sticky;
       top: 65px;
+    }
+
+    #ficha h1 {
+      text-align: center;
     }
 
     #detalhes {
